@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from './components/Header/Header';
+import { TodoList } from './components/TodoList/TodoList';
 
 export const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <Header />
+        <TodoList />
       </div>
     </div>
   );
