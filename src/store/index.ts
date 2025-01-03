@@ -1,8 +1,9 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { todosSlice } from './features/todos';
+import { filterSlice } from './features/filter';
 
-const rootReducer = combineSlices(todosSlice);
+const rootReducer = combineSlices(todosSlice, filterSlice);
 
 export const store = configureStore({
   reducer: rootReducer
