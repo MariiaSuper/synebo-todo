@@ -27,4 +27,39 @@
     font-size: 18px;
     box-shadow: #ccc -2px 3px 9px 2px;
   }
+
+  &__remove {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+
+    font-size: 250%;
+    line-height: 1;
+    font-family: inherit;
+    font-weight: 100;
+    color: $accent;
+
+    float: right;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    transform: translateY(-2px);
+    opacity: 0;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &:hover &__remove {
+    opacity: 1;
+  }
+
+  &.completed &__input {
+    color: #d9d9d9;
+    text-decoration: line-through;
+  }
 }

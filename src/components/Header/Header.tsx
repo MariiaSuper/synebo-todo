@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Header.scss';
 import { useDispatch } from 'react-redux';
 import { todosSlice } from '../../store/features/todos';
+import { v4 as uuidv4 } from 'uuid';
 
 export const Header = () => {
   const [title, setTitle] = useState('');
@@ -15,7 +16,7 @@ export const Header = () => {
     event.preventDefault();
 
     const todo = {
-      id: +Math.random().toFixed(3).slice(2),
+      id: uuidv4(),
       title: title.trim(),
       completed: false
     };

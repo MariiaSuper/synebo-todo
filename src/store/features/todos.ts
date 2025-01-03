@@ -14,8 +14,17 @@ export const todosSlice = createSlice({
 
       return state;
     },
-    deleteTodo: (state, action: PayloadAction<{ id: number }>) => {
+    deleteTodo: (state, action: PayloadAction<{ id: string }>) => {
       return state.filter((item) => item.id !== action.payload.id);
+    },
+    toggleCompleted: (state, action: PayloadAction<{ id: string }>) => {
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, completed: !item.completed };
+        }
+
+        return item;
+      });
     }
   }
 });
