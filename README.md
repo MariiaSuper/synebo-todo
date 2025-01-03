@@ -1,5 +1,9 @@
 # Synebo Todo
 
+## GH Pages
+
+You can check the App on the https://mariiasuper.github.io/synebo-todo/
+
 ## Start App (dev mode)
 
 ```
@@ -16,6 +20,13 @@ npm run build
 # you can serve it by command:
 serve -s build
 ```
+
+## Tech stack
+
+- React
+- Redux + Toolkit
+- Sass + BOM
+- Create rect App
 
 ## Task definition / challenge
 
