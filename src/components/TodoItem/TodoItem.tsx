@@ -21,10 +21,6 @@ export const TodoItem = ({ todo, index, moveTodo }: Props) => {
     dispatch(todosSlice.actions.deleteTodo({ id: todo.id }));
   }, [dispatch, todo.id]);
 
-  const toggleCompeted = useCallback(() => {
-    dispatch(todosSlice.actions.toggleCompleted({ id: todo.id }));
-  }, [dispatch, todo.id]);
-
   const ref = useRef<HTMLFormElement>(null);
 
   const [, drop] = useDrop({
@@ -47,18 +43,25 @@ export const TodoItem = ({ todo, index, moveTodo }: Props) => {
 
   drag(drop(ref));
 
+  const toggleCompeted = useCallback(
+    (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+      if (isDragging) {
+        return;
+      }
+      event.stopPropagation();
+      event.preventDefault();
+      dispatch(todosSlice.actions.toggleCompleted({ id: todo.id }));
+    },
+    [dispatch, todo.id, isDragging]
+  );
+
   return (
     <form
       ref={ref}
       className={classNames('todo', { completed: todo.completed, 'todo--dragging': isDragging })}>
-      <div className="todo__checkbox">
+      <div className="todo__checkbox" onClick={toggleCompeted} onTouchEnd={toggleCompeted}>
         <label className="checkbox">
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            className="checkbox__input"
-            onChange={toggleCompeted}
-          />
+          <input type="checkbox" checked={todo.completed} className="checkbox__input" readOnly />
           <span className="checkbox__inner"></span>
         </label>
       </div>

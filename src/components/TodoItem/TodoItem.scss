@@ -4,7 +4,7 @@
 .todo {
   width: 100%;
   display: flex;
-  height: 56px;
+  height: $todoItemHeight;
   position: relative;
   margin-bottom: 1px;
 
@@ -16,19 +16,25 @@
   }
 
   &__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    left: 16px;
-    top: 16px;
+    left: 0;
+    top: 0;
+    z-index: 10;
     cursor: pointer;
+    width: $todoItemHeight;
+    height: $todoItemHeight;
   }
 
   &__input {
     width: 100%;
-    height: 56px;
+    height: $todoItemHeight;
     box-shadow: none;
     border-radius: 4px;
     border: none;
-    padding: 0 8px 0 60px;
+    padding: 0 8px 0 $todoItemHeight + 8px;
     font-size: 18px;
     box-shadow: #ccc -10px 1px 11px -4px;
     cursor: move;
