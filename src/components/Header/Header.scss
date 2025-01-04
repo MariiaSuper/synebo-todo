@@ -1,5 +1,4 @@
 @import '../../styles/colors.scss';
-@import '../../styles/mixins';
 
 .todoapp__header {
   margin-bottom: 24px;
@@ -17,7 +16,10 @@
   height: 56px;
   position: relative;
 
-  @include zoom-hover();
+  transition: transform 0.3 ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
 
   &__checkbox {
     position: absolute;

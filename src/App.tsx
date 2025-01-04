@@ -3,6 +3,8 @@ import { Header } from './components/Header/Header';
 import { TodoList } from './components/TodoList/TodoList';
 import { TodoFilter } from './components/TodoFilter/TodoFilter';
 import { useAppSelector } from './store';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export const App: React.FC = () => {
   const todos = useAppSelector((state) => state.todos);
@@ -16,7 +18,9 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <Header />
-        <TodoList />
+        <DndProvider backend={HTML5Backend}>
+          <TodoList />
+        </DndProvider>
 
         {todos.length > 0 && <TodoFilter />}
       </div>

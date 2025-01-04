@@ -1,5 +1,4 @@
 @import '../../styles/colors.scss';
-@import '../../styles/mixins';
 
 .todo {
   width: 100%;
@@ -8,7 +7,10 @@
   position: relative;
   margin-bottom: 1px;
 
-  @include zoom-hover();
+  transition: transform 0.3 ease-in-out;
+  .todo__list:not(.dragging) &:hover {
+    transform: scale(1.03);
+  }
 
   &__checkbox {
     position: absolute;
@@ -26,6 +28,7 @@
     padding: 0 8px 0 60px;
     font-size: 18px;
     box-shadow: #ccc -10px 1px 11px -4px;
+    cursor: move;
   }
 
   &__remove {
@@ -61,5 +64,10 @@
   &.completed &__input {
     color: #d9d9d9;
     text-decoration: line-through;
+  }
+
+  &--dragging &__input {
+    background-color: $accent;
+    opacity: 0.5;
   }
 }

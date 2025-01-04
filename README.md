@@ -25,8 +25,15 @@ serve -s build
 
 - React
 - Redux + Toolkit
-- Sass + BOM
+- Sass + BEM
 - Create rect App
+
+## Features
+
+- Add / Remove / Toggle complete Todo
+- Filter by Todo state
+- Clear all Completed
+- Drag'n'Drop (Desktop browsers)
 
 ## Task definition / challenge
 
