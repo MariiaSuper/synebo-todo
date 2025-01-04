@@ -1,4 +1,5 @@
 @import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
 
 .todo {
   width: 100%;
@@ -8,8 +9,10 @@
   margin-bottom: 1px;
 
   transition: transform 0.3 ease-in-out;
-  .todo__list:not(.dragging) &:hover {
-    transform: scale(1.03);
+  @media screen and (min-width: $contentWidth) {
+    .todo__list:not(.dragging) &:hover {
+      transform: scale(1.03);
+    }
   }
 
   &__checkbox {
@@ -67,7 +70,7 @@
   }
 
   &--dragging &__input {
-    background-color: $accent;
-    opacity: 0.5;
+    background-color: $accent-light;
+    transform: scale(1.03);
   }
 }

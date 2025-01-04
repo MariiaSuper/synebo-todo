@@ -27,12 +27,20 @@
 }
 
 .filter__button {
-  cursor: pointer;
   padding: 0;
   border: none;
   background: none;
 
   &.active {
     color: $accent;
+  }
+
+  &:not(.active) {
+    cursor: pointer;
+  }
+
+  transition: transform 0.3 ease-in-out;
+  &:hover:not(&.active) {
+    transform: scale(1.05);
   }
 }

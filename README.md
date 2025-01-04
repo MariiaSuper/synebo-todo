@@ -26,14 +26,16 @@ serve -s build
 - React
 - Redux + Toolkit
 - Sass + BEM
+- React DnD
 - Create rect App
+- GitPub workflow + GitPub pages
 
 ## Features
 
 - Add / Remove / Toggle complete Todo
 - Filter by Todo state
 - Clear all Completed
-- Drag'n'Drop (Desktop browsers)
+- Drag'n'Drop (Desktop and mobile devices)
 
 ## Task definition / challenge
 

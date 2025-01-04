@@ -3,8 +3,27 @@ import { Header } from './components/Header/Header';
 import { TodoList } from './components/TodoList/TodoList';
 import { TodoFilter } from './components/TodoFilter/TodoFilter';
 import { useAppSelector } from './store';
-import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+
+import { DndProvider, TouchTransition, MouseTransition } from 'react-dnd-multi-backend';
+
+export const HTML5toTouch = {
+  backends: [
+    {
+      id: 'html5',
+      backend: HTML5Backend,
+      transition: MouseTransition
+    },
+    {
+      id: 'touch',
+      backend: TouchBackend,
+      options: { enableMouseEvents: true },
+      preview: true,
+      transition: TouchTransition
+    }
+  ]
+};
 
 export const App: React.FC = () => {
   const todos = useAppSelector((state) => state.todos);
@@ -18,7 +37,7 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <Header />
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider options={HTML5toTouch}>
           <TodoList />
         </DndProvider>
 
