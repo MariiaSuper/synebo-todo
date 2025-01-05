@@ -38,6 +38,7 @@
     font-size: 18px;
     box-shadow: #ccc -10px 1px 11px -4px;
     cursor: move;
+    user-select: none;
   }
 
   &__remove {
@@ -78,5 +79,28 @@
   &--dragging &__input {
     background-color: $accent-light;
     transform: scale(1.03);
+  }
+
+  &--shaking {
+    animation: shake-animation 0.3s ease forwards;
+  }
+
+  &--shaking &__input {
+    background-color: $accent-light;
+  }
+
+  @keyframes shake-animation {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(5px);
+    }
+    75% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }

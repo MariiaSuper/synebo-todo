@@ -8,6 +8,7 @@ import { TouchBackend } from 'react-dnd-touch-backend';
 
 import { DndProvider, TouchTransition, MouseTransition } from 'react-dnd-multi-backend';
 import { Footer } from './components/Footer/Footer';
+import { TOUCH_DRUGGING_DELAY } from './constants';
 
 export const HTML5toTouch = {
   backends: [
@@ -19,7 +20,7 @@ export const HTML5toTouch = {
     {
       id: 'touch',
       backend: TouchBackend,
-      options: { enableMouseEvents: true },
+      options: { enableMouseEvents: true, delayTouchStart: TOUCH_DRUGGING_DELAY },
       preview: true,
       transition: TouchTransition
     }
@@ -43,8 +44,8 @@ export const App: React.FC = () => {
         </DndProvider>
 
         {todos.length > 0 && <TodoFilter />}
+        {todos.length > 0 && <Footer />}
       </div>
-      <Footer />
     </div>
   );
 };
