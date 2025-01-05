@@ -17,6 +17,9 @@ export const todosSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<{ id: string }>) => {
       return state.filter((item) => item.id !== action.payload.id);
     },
+    deleteTodos: (state, action: PayloadAction<string[]>) => {
+      return state.filter((item) => !action.payload.includes(item.id));
+    },
     toggleCompleted: (state, action: PayloadAction<{ id: string }>) => {
       return state.map((item) => {
         if (item.id === action.payload.id) {

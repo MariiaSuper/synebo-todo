@@ -25,9 +25,7 @@ export const TodoFilter = () => {
   };
 
   const clearCompleted = () => {
-    completedTodos.forEach((todo) => {
-      dispatch(todosSlice.actions.deleteTodo({ id: todo.id }));
-    });
+    dispatch(todosSlice.actions.deleteTodos(completedTodos.map((todo) => todo.id)));
   };
 
   return (

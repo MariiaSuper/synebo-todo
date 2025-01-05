@@ -36,6 +36,7 @@ serve -s build
 - Filter by Todo state
 - Clear all Completed
 - Drag'n'Drop (Desktop and mobile devices)
+- Persist state in LocalStorage
 
 ## Task definition / challenge
 
