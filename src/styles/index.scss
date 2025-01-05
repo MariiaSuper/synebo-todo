@@ -5,6 +5,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f6f6;
 }
 
 * {
@@ -14,7 +15,7 @@ body {
 
 .todoapp {
   background-color: #f6f6f6;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,6 +28,8 @@ body {
   &__content {
     margin-top: -200px;
     width: $contentWidth;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: $contentWidth) {
       width: 100%;

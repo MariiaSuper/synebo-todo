@@ -7,6 +7,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
 
 import { DndProvider, TouchTransition, MouseTransition } from 'react-dnd-multi-backend';
+import { Footer } from './components/Footer/Footer';
 
 export const HTML5toTouch = {
   backends: [
@@ -43,6 +44,7 @@ export const App: React.FC = () => {
 
         {todos.length > 0 && <TodoFilter />}
       </div>
+      <Footer />
     </div>
   );
 };
